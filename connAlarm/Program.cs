@@ -13,7 +13,7 @@ class Program
         Console.WriteLine("Hello, World!");
         while (true)
         {
-            Console.WriteLine("Hello, .NET 6! 🚀"+ GetCurrentDateTime());
+            Console.WriteLine("conn chk, .NET 6! 🚀"+ GetCurrentDateTime());
             sleepSeconds(5);
             if (!isNetConnOk())
             {

@@ -8,7 +8,7 @@ Console.WriteLine("Hello, World!");
 
 while (true)
 {
-    Console.WriteLine("Hello, .NET 6! 🚀" + GetCurrentDateTime());
+    Console.WriteLine("daka, .NET 6! 🚀" + GetCurrentDateTime());
     sleepSeconds(5);
     if (overMorninDakaTime())
     {
