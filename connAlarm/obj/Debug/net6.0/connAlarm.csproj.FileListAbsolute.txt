@@ -21,3 +21,4 @@ C:\Users\attil\source\repos\connAlarm\connAlarm\bin\Debug\net6.0\runtimes\win\li
 C:\Users\attil\source\repos\connAlarm\connAlarm\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\attil\source\repos\connAlarm\connAlarm\obj\Debug\net6.0\connAlarm.csproj.AssemblyReference.cache
 C:\Users\attil\source\repos\connAlarm\connAlarm\obj\Debug\net6.0\connAlarm.csproj.Up2Date
+C:\Users\attil\source\repos\connAlarm\connAlarm\obj\Debug\net6.0\connAlarm.sourcelink.json

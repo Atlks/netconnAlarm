@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connAlarm", "connAlarm\conn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alarmDaka", "alarmDaka\alarmDaka.csproj", "{AEBBFFEB-0D7F-4DA9-86DE-2A9C1EF6F410}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scrChk", "scrChk\scrChk.csproj", "{5B00EEFA-5178-4220-965E-49288C4A7F30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{199098E0-D1C0-48BE-A494-EFC979099EE2}"
+	ProjectSection(SolutionItems) = preProject
+		tok.txt = tok.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scrchk2", "scrchk2\scrchk2.csproj", "{E61FECAE-8249-41C1-9EF6-BE105D3A1632}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,14 @@ Global
 		{AEBBFFEB-0D7F-4DA9-86DE-2A9C1EF6F410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEBBFFEB-0D7F-4DA9-86DE-2A9C1EF6F410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEBBFFEB-0D7F-4DA9-86DE-2A9C1EF6F410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B00EEFA-5178-4220-965E-49288C4A7F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B00EEFA-5178-4220-965E-49288C4A7F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B00EEFA-5178-4220-965E-49288C4A7F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B00EEFA-5178-4220-965E-49288C4A7F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61FECAE-8249-41C1-9EF6-BE105D3A1632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61FECAE-8249-41C1-9EF6-BE105D3A1632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61FECAE-8249-41C1-9EF6-BE105D3A1632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61FECAE-8249-41C1-9EF6-BE105D3A1632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

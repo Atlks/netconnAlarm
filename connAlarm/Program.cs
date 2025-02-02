@@ -17,13 +17,15 @@ class Program
             sleepSeconds(5);
             if (!isNetConnOk())
             {
-                Console.WriteLine(" not ok...isNetConnOk");
+                Console.WriteLine(" not ok...isNetConnOk()");
                 playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
+                playWavFile("网络连接警报.mp3.wav");
             }
             if (!isNetConnOkHttp().GetAwaiter().GetResult())
             {
-                Console.WriteLine(" not ok...isNetConnOkHttp");
+                Console.WriteLine(" not ok...isNetConnOkHttp()");
                 playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
+                playWavFile("网络连接警报.mp3.wav");
 
             }
         }
@@ -37,8 +39,18 @@ class Program
 
     private static void playWavFile(string v)
     {
-        SoundPlayer player = new SoundPlayer(v);
-        player.PlaySync(); // 同步播放，直到播放完成才返回
+        Console.WriteLine("fun playWavFile(wav="+v);
+        try
+        {
+
+            SoundPlayer player = new SoundPlayer(v);
+            player.PlaySync(); // 同步播放，直到播放完成才返回
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+        }
+       
     }
 
     //检测网络是否通畅
