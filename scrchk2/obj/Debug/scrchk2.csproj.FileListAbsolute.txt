@@ -44,3 +44,5 @@ C:\Users\attil\source\repos\connAlarm\scrchk2\bin\Debug\Telegram.Bot.xml
 C:\Users\attil\source\repos\connAlarm\scrchk2\obj\Debug\scrchk2.csproj.Up2Date
 C:\Users\attil\source\repos\connAlarm\scrchk2\obj\Debug\scrchk2.exe
 C:\Users\attil\source\repos\connAlarm\scrchk2\obj\Debug\scrchk2.pdb
+C:\Users\attil\source\repos\connAlarm\scrchk2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\attil\source\repos\connAlarm\scrchk2\bin\Debug\Newtonsoft.Json.xml

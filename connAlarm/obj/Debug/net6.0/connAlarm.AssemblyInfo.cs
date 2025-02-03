@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("connAlarm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78e96e2f100195bb13ff80ae1158f1377a10ae2e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+765a27b56a3efc5055e71bc686c3df06298afa9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("connAlarm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("connAlarm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
