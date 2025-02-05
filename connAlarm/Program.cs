@@ -60,10 +60,7 @@ class Program
     {
         playWavFileByNaudio("../../../cfg/running.wav",0.3f,3);
     }
-    private static string GetCurrentDateTime()
-    {
-        return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-    }
+   
 
     /**
      * 0.2f; // 设置音量为 20%
@@ -156,5 +153,10 @@ private static void playWavFile(string wavFile)
     private static void sleepSeconds(int v)
     {
         System.Threading.Thread.Sleep(v * 1000); // 毫秒转换
+    }
+
+    private static string GetCurrentDateTime()
+    {
+        return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
 }
