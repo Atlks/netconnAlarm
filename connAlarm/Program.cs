@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using NAudio.Wave;
 using System;
 using System.Media;
 using System.Net.NetworkInformation;
@@ -11,6 +12,7 @@ class Program
     {
         Console.WriteLine("Hello, .NET 6! 🚀");
         Console.WriteLine("Hello, World!");
+        Timer timer = new Timer(PrintOK, null, 0, 30000);
         while (true)
         {
             Console.WriteLine("conn chk, .NET 6! 🚀"+ GetCurrentDateTime());
@@ -31,19 +33,39 @@ class Program
         }
 
     }
+
+    static void PrintOK(object state)
+    {
+        playWavFileByNaudio("../../../cfg/ok.wav",0.3f);
+    }
     private static string GetCurrentDateTime()
     {
         return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
 
-
-    private static void playWavFile(string v)
+    /**
+     * 0.2f; // 设置音量为 20%
+     */
+    private static void playWavFileByNaudio(string wavFile, float vlm)
     {
-        Console.WriteLine("fun playWavFile(wav="+v);
+        using (var audioFile = new AudioFileReader(wavFile))
+        using (var outputDevice = new WaveOutEvent())
+        {
+            audioFile.Volume = vlm;// 0.2f; // 设置音量为 20%
+            outputDevice.Init(audioFile);
+            outputDevice.Play();
+
+            Console.WriteLine("播放中，按 Enter 退出...");
+            Console.ReadLine(); // 等待用户输入
+        }
+    }
+private static void playWavFile(string wavFile)
+    {
+        Console.WriteLine("fun playWavFile(wav="+wavFile);
         try
         {
 
-            SoundPlayer player = new SoundPlayer(v);
+            SoundPlayer player = new SoundPlayer(wavFile);
             player.PlaySync(); // 同步播放，直到播放完成才返回
         }
         catch (Exception e)

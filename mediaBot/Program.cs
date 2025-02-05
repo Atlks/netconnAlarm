@@ -36,7 +36,7 @@ class Program
     private static   string botToken = "YOUR_BOT_TOKEN"; // 🔹 你的 Telegram 机器人 Token
     private static readonly long chatId = -1002464727440; // 🔹 你的 Telegram 群组 ID  daka grp
     private static readonly string saveDir = "recordings"; // 存储目录
-    private static readonly string ffmpegPath = "ffmpeg";  // 确保 FFmpeg 在系统 PATH 里
+
 
     static async Task Main()
     {
@@ -138,34 +138,6 @@ class Program
         Console.WriteLine($"📥 downok: {savePath}");
     }
 
-    private static string ConvertToWav(string inputFile)
-    {
-        string outputFile = Path.ChangeExtension(inputFile, ".wav");
-
-        ProcessStartInfo psi = new()
-        {
-            FileName = ffmpegPath,
-            Arguments = $"-i \"{inputFile}\" \"{outputFile}\"",
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-
-        using var process = Process.Start(psi);
-        process.WaitForExit();
-
-        if (process.ExitCode == 0)
-        {
-            Console.WriteLine($"🎵 ConvertToWav ok: {outputFile}");
-            return outputFile;
-        }
-        else
-        {
-            Console.WriteLine($"❌ ConvertToWav fail: {inputFile}");
-            return string.Empty;
-        }
-    }
 
     private static Task HandlePollingErrorAsync(ITelegramBotClient bot, Exception exception, CancellationToken cancellationToken)
     {
