@@ -17,21 +17,41 @@ class Program
         {
             Console.WriteLine("conn chk, .NET 6! 🚀"+ GetCurrentDateTime());
             sleepSeconds(5);
-            if (!isNetConnOk())
+            Console.WriteLine("cur dis conn Cnt="+disConnnCnt);
+            if (!isNetConnOkEx())
             {
                 Console.WriteLine(" not ok...isNetConnOk()");
-                playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
+              //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
                 playWavFile("网络连接警报.mp3.wav");
             }
-            if (!isNetConnOkHttp().GetAwaiter().GetResult())
+            sleepSeconds(5);
+            Console.WriteLine("cur dis conn Cnt=" + disConnnCnt);
+            if (! isNetConnOKThruHttp()  )
             {
                 Console.WriteLine(" not ok...isNetConnOkHttp()");
-                playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
+              //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
                 playWavFile("网络连接警报.mp3.wav");
 
             }
         }
 
+    }
+
+    private static bool isNetConnOKThruHttp()
+    {
+        Console.WriteLine("fun isNetConnOKThruHttp()");
+        bool rzt= isNetConnOkHttp().GetAwaiter().GetResult();
+        if (!rzt)
+        {
+            disConnnCnt++;
+        }
+        if (disConnnCnt > 1)
+        {
+            disConnnCnt = 0;//resst flg
+            return false;
+        }
+        else
+            return true;
     }
 
     static void PrintOK(object state)
@@ -55,8 +75,8 @@ class Program
             outputDevice.Init(audioFile);
             outputDevice.Play();
 
-            Console.WriteLine("播放中，按 Enter 退出...");
-            Console.ReadLine(); // 等待用户输入
+         //   Console.WriteLine("播放中，按 Enter 退出...");
+         //   Console.ReadLine(); // 等待用户输入
         }
     }
 private static void playWavFile(string wavFile)
@@ -74,10 +94,27 @@ private static void playWavFile(string wavFile)
         }
        
     }
+    static int disConnnCnt = 0;
+    private static bool isNetConnOkEx
+        ()
+    {
+        Console.WriteLine("fun isNetConnOkEx()");
+        if (!isNetConnOk())
+        {
+            disConnnCnt++;
+        }
+        if (disConnnCnt > 1)
+        {
+            disConnnCnt = 0;//resst flg
+            return false;
+        }            
+        else
+            return true;
 
-    //检测网络是否通畅
-    // 可能被 防火墙阻止（某些环境下 ICMP 被禁）
-    private static bool isNetConnOk()
+    }
+        //检测网络是否通畅
+        // 可能被 防火墙阻止（某些环境下 ICMP 被禁）
+        private static bool isNetConnOk()
     {
         try
         {
