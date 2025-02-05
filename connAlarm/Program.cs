@@ -10,6 +10,7 @@ class Program
 {
     static void Main()
     {
+        playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
         Console.WriteLine("Hello, .NET 6! 🚀");
         Console.WriteLine("Hello, World!");
         Timer timer = new Timer(PrintOK, null, 0, 30000);
@@ -44,6 +45,7 @@ class Program
         if (!rzt)
         {
             disConnnCnt++;
+            playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
         }
         if (disConnnCnt > 1)
         {
@@ -56,7 +58,7 @@ class Program
 
     static void PrintOK(object state)
     {
-        playWavFileByNaudio("../../../cfg/ok.wav",0.3f);
+        playWavFileByNaudio("../../../cfg/running.wav",0.3f,3);
     }
     private static string GetCurrentDateTime()
     {
@@ -66,18 +68,26 @@ class Program
     /**
      * 0.2f; // 设置音量为 20%
      */
-    private static void playWavFileByNaudio(string wavFile, float vlm)
+    private static void playWavFileByNaudio(string wavFile, float vlm, int playTimespan)
     {
-        using (var audioFile = new AudioFileReader(wavFile))
-        using (var outputDevice = new WaveOutEvent())
+        try
         {
-            audioFile.Volume = vlm;// 0.2f; // 设置音量为 20%
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
-
-         //   Console.WriteLine("播放中，按 Enter 退出...");
-         //   Console.ReadLine(); // 等待用户输入
+            using (var audioFile = new AudioFileReader(wavFile))
+            using (var outputDevice = new WaveOutEvent())
+            {
+                audioFile.Volume = vlm;// 0.2f; // 设置音量为 20%
+                outputDevice.Init(audioFile);
+                outputDevice.Play();
+                sleepSeconds(playTimespan);
+                //   Console.WriteLine("播放中，按 Enter 退出...");
+                //   Console.ReadLine(); // 等待用户输入
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+        }
+
     }
 private static void playWavFile(string wavFile)
     {
@@ -102,6 +112,7 @@ private static void playWavFile(string wavFile)
         if (!isNetConnOk())
         {
             disConnnCnt++;
+            playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
         }
         if (disConnnCnt > 1)
         {
