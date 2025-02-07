@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("alarmDaka")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+765a27b56a3efc5055e71bc686c3df06298afa9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4aa4e689f0cbda0aadaf61f16e9b9ca6af110882")]
 [assembly: System.Reflection.AssemblyProductAttribute("alarmDaka")]
 [assembly: System.Reflection.AssemblyTitleAttribute("alarmDaka")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
