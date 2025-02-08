@@ -11,7 +11,8 @@ class Program
     static void Main()
     {
         playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
-        playWavFile("../../../cfg/滴legonn.wav");
+        var reconn = "../../../cfg/ 滴蕊刚.wav";
+        playWavFile(reconn);
         Console.WriteLine("Hello, .NET 6! 🚀");
         Console.WriteLine("Hello, World!");
         Timer timer = new Timer(PrintOK, null, 0, 30000);
@@ -24,7 +25,7 @@ class Program
             {
                 Console.WriteLine(" not ok...isNetConnOk()");
               //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
-                playWavFile("../../../cfg/滴legonn.wav");
+                playWavFile(reconn);
             }
             sleepSeconds(5);
             Console.WriteLine("cur dis conn Cnt=" + disConnnCnt);
@@ -32,7 +33,7 @@ class Program
             {
                 Console.WriteLine(" not ok...isNetConnOkHttp()");
               //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
-                playWavFile("../../../cfg/滴legonn.wav");
+                playWavFile(reconn);
 
             }
         }
