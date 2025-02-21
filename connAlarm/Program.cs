@@ -11,7 +11,7 @@ class Program
     static void Main()
     {
         playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
-        var reconn = "../../../cfg/ 滴蕊刚.wav";
+        var reconn = "../../../cfg/滴蕊刚.wav";
         playWavFile(reconn);
         Console.WriteLine("Hello, .NET 6! 🚀");
         Console.WriteLine("Hello, World!");
@@ -126,31 +126,41 @@ private static void playWavFile(string wavFile)
         // 可能被 防火墙阻止（某些环境下 ICMP 被禁）
         private static bool isNetConnOk()
     {
+        Console.WriteLine("fun isNetConnOk()");
+        bool connChkRzt;
         try
         {
             using Ping ping = new();
             PingReply reply = ping.Send("8.8.8.8", 3000); // 3 秒超时
-            return reply.Status == IPStatus.Success;
+            connChkRzt = (reply.Status == IPStatus.Success);
+          
         }
         catch
         {
-            return false;
+            connChkRzt= false;
         }
+        Console.WriteLine("endfun isNetConnOk().ret="+connChkRzt);
+        return connChkRzt;
     }
 
     private static async Task<bool> isNetConnOkHttp()
     {
+        Console.WriteLine("fun isConnOkHttp()");
+        bool connChkRzt;
         try
         {
             using HttpClient client = new();
             client.Timeout = TimeSpan.FromSeconds(3);
-            using HttpResponseMessage response = await client.GetAsync("https://www.google.com");
-            return response.IsSuccessStatusCode;
+            using HttpResponseMessage response = await client.GetAsync("http://www.google.com");
+            connChkRzt= response.IsSuccessStatusCode;
         }
         catch
         {
-            return false;
+            connChkRzt = false;
         }
+
+        Console.WriteLine("fun isConnOkHttp().ret="+ connChkRzt);
+        return connChkRzt;
     }
     private static void sleepSeconds(int v)
     {
