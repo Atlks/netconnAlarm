@@ -18,12 +18,13 @@ class Program
         Timer timer = new Timer(PrintOK, null, 0, 30000);
         while (true)
         {
+            Console.WriteLine("\n\n\n while true()");
             Console.WriteLine("conn chk, .NET 6! 🚀"+ GetCurrentDateTime());
             sleepSeconds(5);
             Console.WriteLine("cur dis conn Cnt="+disConnnCnt);
             if (!isNetConnOkEx())
             {
-                Console.WriteLine(" not ok...isNetConnOk()");
+                Console.WriteLine(" not ok...isNetConnOkEx()");
               //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
                 playWavFile(reconn);
             }
@@ -31,7 +32,7 @@ class Program
             Console.WriteLine("cur dis conn Cnt=" + disConnnCnt);
             if (! isNetConnOKThruHttp()  )
             {
-                Console.WriteLine(" not ok...isNetConnOkHttp()");
+                Console.WriteLine(" not ok...isNetConnOKThruHttp()");
               //  playWavFile("C:\\cfg\\网络连接警告.mp3.wav");
                 playWavFile(reconn);
 
@@ -42,13 +43,17 @@ class Program
 
     private static bool isNetConnOKThruHttp()
     {
-        Console.WriteLine("fun isNetConnOKThruHttp()");
+        Console.WriteLine("\n\nfun isNetConnOKThruHttp()");
         bool rzt= isNetConnOkHttp().GetAwaiter().GetResult();
         if (!rzt)
         {
             disConnnCnt++;
-            playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
+            playWavFileByNaudio("../../../cfg/di.wav", 0.7f, 3);
         }
+        else
+            disConnnCnt = 0;
+
+
         if (disConnnCnt > 1)
         {
             disConnnCnt = 0;//resst flg
@@ -107,12 +112,15 @@ private static void playWavFile(string wavFile)
     private static bool isNetConnOkEx
         ()
     {
-        Console.WriteLine("fun isNetConnOkEx()");
+        Console.WriteLine("\n\nfun isNetConnOkEx()");
         if (!isNetConnOk())
         {
             disConnnCnt++;
-            playWavFileByNaudio("../../../cfg/di.wav", 0.7f,3);
+            playWavFileByNaudio("../../../cfg/di.wav", 0.7f, 3);
         }
+        else
+            disConnnCnt = 0;
+
         if (disConnnCnt > 1)
         {
             disConnnCnt = 0;//resst flg
@@ -126,7 +134,7 @@ private static void playWavFile(string wavFile)
         // 可能被 防火墙阻止（某些环境下 ICMP 被禁）
         private static bool isNetConnOk()
     {
-        Console.WriteLine("fun isNetConnOk()");
+        Console.WriteLine("\nfun isNetConnOk()");
         bool connChkRzt;
         try
         {
@@ -145,7 +153,7 @@ private static void playWavFile(string wavFile)
 
     private static async Task<bool> isNetConnOkHttp()
     {
-        Console.WriteLine("fun isConnOkHttp()");
+        Console.WriteLine("\nfun isConnOkHttp()");
         bool connChkRzt;
         try
         {
